@@ -15,9 +15,27 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showIndex()
 	{
-		return View::make('hello');
+		$randomNumber = mt_rand(1,2);
+		$backgroundImage = "/images/home-bg" . $randomNumber . ".jpg";
+
+		$query = Post::with('User');
+		$posts = $query->orderBy('created_at', 'desc')->paginate(5);
+		return View::make('index')->with(array('backgroundImage' => $backgroundImage, 'posts' => $posts));
+	}
+
+	public function showAbout()
+	{
+		$user = User::where("email", "=", "louishawkins@gmail.com")->firstOrFail();
+		$backgroundImage = "/images/home-bg1.jpg";
+		return View::make('about')->with(array('user' => $user, 'backgroundImage' => $backgroundImage));
+	}
+
+	public function showContactInfo()
+	{
+		$user = User::where("email", "=", "louishawkins@gmail.com")->firstOrFail();
+		return View::make('contact')->with(array('user' => $user));
 	}
 
 }

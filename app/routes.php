@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', 'HomeController@showIndex');
+Route::get('/about', 'HomeController@showAbout');
+Route::get('/contact', 'HomeController@showContactInfo');
+Route::get('/project', 'ProjectsController@index');
+
+Route::resource('posts', 'PostsController');
