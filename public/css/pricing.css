@@ -1,0 +1,90 @@
+.plan-cost {
+    -webkit-font-smoothing: antialiased;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: museo-sans;
+    font-size: 14px;
+    font-weight: 300;
+    height: 99px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    outline-color: rgb(51, 51, 51);
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.plan-description {
+    -webkit-font-smoothing: antialiased;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(241, 241, 241);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: museo-sans;
+    font-size: 14px;
+    font-weight: 300;
+    height: 35px;
+    line-height: 23.7999992370605px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 14px;
+    outline-color: rgb(51, 51, 51);
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.plan-features {
+
+}
+
+.choose-plan {
+
+}
+
+.centered {
+    margin: auto;
+}
+
+.pricing-cards {
+}

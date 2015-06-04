@@ -25,6 +25,11 @@ class HomeController extends BaseController {
 		return View::make('index')->with(array('backgroundImage' => $backgroundImage, 'posts' => $posts));
 	}
 
+    public function showPricing()
+    {
+        return View::make('pricing');
+    }
+
 	public function showAbout()
 	{
 		$user = User::where("email", "=", "louishawkins@gmail.com")->firstOrFail();
