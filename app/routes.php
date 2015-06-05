@@ -16,5 +16,6 @@ Route::get('/about', 'HomeController@showAbout');
 Route::get('/contact', 'HomeController@showContactInfo');
 Route::get('/project', 'ProjectsController@index');
 Route::get('/pricing', 'HomeController@showPricing');
+Route::get('/newpage', 'HomeController@showNewPage');
 
 Route::resource('posts', 'PostsController');
