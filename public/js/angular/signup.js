@@ -7,7 +7,7 @@ var emailHolder = null;
 app.controller('SignupController', ['$scope', '$location', function ($scope, $location) {
     var params = $location.search();
     $scope.crmSet = false;
-    $scope.phoneSet = false;
+    //$scope.phoneSet = false;
     displayError();
 
     /**
@@ -21,12 +21,12 @@ app.controller('SignupController', ['$scope', '$location', function ($scope, $lo
             var crm = params.crm.toLowerCase();
             $('#crmProvider').val(crm);
         }
-        if (params.phone) {
-            console.log('phone set to ', params.phone);
-            $scope.phoneSet = true;
-            var phone = params.phone.toLowerCase();
-            $('#phoneSystem').val(phone);
-        }
+        // if (params.phone) {
+        //     console.log('phone set to ', params.phone);
+        //     $scope.phoneSet = true;
+        //     var phone = params.phone.toLowerCase();
+        //     $('#phoneSystem').val(phone);
+        // }
     }
     trackFormEntry();
     setupHestitationTimers();

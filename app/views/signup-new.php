@@ -2,6 +2,11 @@
     function getClientIpAddress(){
         return 'testing';
     }
+
+    $integrations = [
+        "crms" => '<option>Close.io</option><option>Salesforce</option><option>SugarCRM</option><option>Zoho</option>'
+    ]
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -53,7 +58,7 @@
                         </p>
                     </div> <!-- form part p1 -->
 
-                    <div class="form_part p2" style="display: none;">
+                    <div class="form_part p2">
                         <div id="top" class="sign-up-header">
                             Awesome!
                             <div class="subheading">Tell us about yourself.</div>
@@ -74,7 +79,7 @@
                             <label for="crmProvider">Which CRM do you use?</label>
                             <br>
                             <select name="crmProvider" id="crmProvider" required>
-                                <?php //echo $integrations['crms'] ?>
+                                <?php echo $integrations['crms'] ?>
                             </select>
                         </p>
 
@@ -94,7 +99,7 @@
                 <div id="bottom">
                     <input type="hidden" name="ip" value="<?= getClientIpAddress() ?>" />
                     <input type="hidden" id="sio" name="sio" >
-                    <input type="button" id="continue_button" value="Continue" class="p1" style="display: inline-block;">
+                    <input type="button" id="continue_button" value="Continue" class="p1" style="display: inline-block;" ng-click="page1=false;page2=true;">
                     <a href="#1" id="back" class="p2" style="display: inline;">← Back</a>
                     <input type="submit" value="GET STARTED" class="login-submit p2" style="display: none;">
                 </div>
