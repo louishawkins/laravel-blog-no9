@@ -30,6 +30,16 @@ class HomeController extends BaseController {
         return View::make('pricing');
     }
 
+    public function showSignupPage()
+    {
+        return View::make('signup');
+    }
+
+    public function showNewSignupPage()
+    {
+        return View::make('signup-new');
+    }
+
 	public function showAbout()
 	{
 		$user = User::where("email", "=", "louishawkins@gmail.com")->firstOrFail();
