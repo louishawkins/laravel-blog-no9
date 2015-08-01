@@ -1,5 +1,7 @@
 <?php
-
+    function getClientIpAddress(){
+        return 'testing';
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +26,7 @@
                 <img src="https://cdn.callinize.com/wp-content/themes/callinize/images/logo.png">
             </a>
             <div class="blue accent"></div>
-            <form id="registration" method="post" action=".">
+            <form id="registration" method="post" action="https://dashboard.callinize.com/signup?origin=signup" name="form">
                 <div id="middle">
                     <p></p>
                     <div class="form_part p1">
@@ -33,49 +35,48 @@
                             <div class="subheading">Completely free. No credit card required.</div>
                         </div> <!-- div id top sign up header -->
                         <p>
-                            <label for="id_name">First and last name:</label>
+                            <label for="name">First and last name:</label>
                             <br>
-                            <input class="reqblue" id="id_name" maxlength="30" name="name" type="text">
+                            <input class="reqblue" id="name" maxlength="30" name="name" ng-model="name" type="text" required autofocus>
                         </p>
 
                         <p>
-                            <label for="id_email">Email:</label>
+                            <label for="username">Email:</label>
                             <br>
-                            <input class="reqblue" id="id_email" name="email" type="email">
+                            <input class="reqblue" id="username" name="username" ng-model="username" type="email" unique-username required>
                         </p>
 
                         <p>
-                            <label for="id_password1">Password:</label>
+                            <label for="password">Password:</label>
                             <br>
-                            <input class="reqblue" id="id_password1" name="password1" type="password">
+                            <input class="reqblue" id="password" name="password" ng-model="password" type="password" required>
                         </p>
                     </div> <!-- form part p1 -->
 
                     <div class="form_part p2" style="display: none;">
                         <div id="top" class="sign-up-header">
-                            Sign up
-                            <div class="subheading">Completely free. No credit card required.</div>
+                            Awesome!
+                            <div class="subheading">Tell us about yourself.</div>
                         </div> <!-- div id top sign up header -->
                        <p>
-                            <label for="id_company">Company:</label>
+                            <label for="company">Company:</label>
                             <br>
-                            <input class="reqblue" id="id_company" maxlength="30" name="company" type="text">
+                            <input class="reqblue" id="company" maxlength="30" name="company" ng-model="company" type="text" unique-company required>
                         </p>
 
                         <p>
-                            <label for="id_email">Phone number:</label>
+                            <label for="phoneNumber">Phone number:</label>
                             <br>
-                            <input class="reqblue" id="id_phone" name="phone" type="text">
+                            <input class="reqblue" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="text">
                         </p>
 
                         <p>
-                            <label for="number_of_employees_hidden_field">How many employees do you have?</label>
+                            <label for="crmProvider">Which CRM do you use?</label>
                             <br>
-                            <!-- assuming still put input -->
-                            <input class="reqblue" id="number_of_employees_hidden_field" name="password1" type="hidden">
+                            <select name="crmProvider" id="crmProvider" required>
+                                <?php //echo $integrations['crms'] ?>
+                            </select>
                         </p>
-
-                        <div id="number_of_employees_dropdown">Dropdown</div>
 
                         <p></p>
                         <p class="terms">
@@ -91,13 +92,11 @@
 
                 </div> <!-- div id middle -->
                 <div id="bottom">
-                    <input id="id_invited" name="invited" type="hidden">
-                    <input id="id_from_param" name="from_param" type="hidden">
-                    <input id="id_promo_slug" name="promo_slug" type="hidden">
-                    <input id="number_of_employees_hidden_field" name="number_of_employees" type="hidden" value="2">
-                    <input type="button" id="continue_button" value="Continue" class="p1" style="display: none;">
+                    <input type="hidden" name="ip" value="<?= getClientIpAddress() ?>" />
+                    <input type="hidden" id="sio" name="sio" >
+                    <input type="button" id="continue_button" value="Continue" class="p1" style="display: inline-block;">
                     <a href="#1" id="back" class="p2" style="display: inline;">← Back</a>
-                    <input type="submit" value="Sign up" class="p2" style="display: inline-block;">
+                    <input type="submit" value="GET STARTED" class="login-submit p2" style="display: none;">
                 </div>
             </form>
             <div id="bottom_link">
