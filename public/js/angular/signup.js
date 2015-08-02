@@ -7,6 +7,15 @@ var emailHolder = null;
 app.controller('SignupController', ['$scope', '$location', function ($scope, $location) {
     var params = $location.search();
     $scope.crmSet = false;
+
+    /**
+     * Pagination
+     */
+    $scope.page = 'page1';
+
+    $scope.toggle = function (pageNum) {
+        $scope.page = 'page' + pageNum;
+    };
     //$scope.phoneSet = false;
     displayError();
 
@@ -47,7 +56,7 @@ function trackFormEntry() {
  * @returns {*|jQuery|HTMLElement}
  */
 function getSignupFields() {
-    return $('#name, #company, #username, #password, #phoneSystem, #crmProvider, .login-submit');
+    return $('#name, #username, #password, #company, #phoneNumber, #crmProvider');
 }
 
 /**

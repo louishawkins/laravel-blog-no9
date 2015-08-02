@@ -58,8 +58,7 @@ input, textarea {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #d9dde5;
-
-	min-height: 400px;
+	min-height: 495px;
 }
 
 #middle #separator {
@@ -121,12 +120,13 @@ input.reqblue {
 	font-family: sans-serif;
 	text-transform: uppercase;
 	color: #8a92a5;
+    min-height: 61px;
 }
 
-#bottom #back {
+#bottom .back_button {
 	position: absolute;
 	left: 40px;
-	top: 30px;
+	top: 20px;
 	text-decoration: none;
 }
 

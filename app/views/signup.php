@@ -2,7 +2,7 @@
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="signupApp">
 <head>
     <meta charset="UTF-8">
     <title>Louis Hawkins</title>

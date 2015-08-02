@@ -9,17 +9,17 @@
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="signupApp">
 <head>
     <meta charset="UTF-8">
     <title>Louis Hawkins</title>
     <script src="/js/angular/angular.min.js"></script>
-    <script src="/js/angular/signup.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/signup-new.css">
+    <script src="/js/angular/signup.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 
@@ -32,12 +32,12 @@
             </a>
             <div class="blue accent"></div>
             <form id="registration" method="post" action="https://dashboard.callinize.com/signup?origin=signup" name="form">
-                <div id="middle">
+                <div id="middle" ng-switch on="page">
                     <p></p>
-                    <div class="form_part p1">
+                    <div class="form_part p1" ng-switch-when="page1">
                         <div id="top" class="sign-up-header">
                             Sign up
-                            <div class="subheading">Completely free. No credit card required.</div>
+                            <div class="subheading">No credit card required.</div>
                         </div> <!-- div id top sign up header -->
                         <p>
                             <label for="name">First and last name:</label>
@@ -58,7 +58,7 @@
                         </p>
                     </div> <!-- form part p1 -->
 
-                    <div class="form_part p2">
+                    <div class="form_part" ng-switch-when="page2">
                         <div id="top" class="sign-up-header">
                             Awesome!
                             <div class="subheading">Tell us about yourself.</div>
@@ -72,7 +72,7 @@
                         <p>
                             <label for="phoneNumber">Phone number:</label>
                             <br>
-                            <input class="reqblue" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="text">
+                            <input class="reqblue" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="text" required>
                         </p>
 
                         <p>
@@ -96,12 +96,13 @@
                     <div class="clear"></div>
 
                 </div> <!-- div id middle -->
-                <div id="bottom">
+                <div id="bottom" ng-switch on="page">
                     <input type="hidden" name="ip" value="<?= getClientIpAddress() ?>" />
                     <input type="hidden" id="sio" name="sio" >
-                    <input type="button" id="continue_button" value="Continue" class="p1" style="display: inline-block;" ng-click="page1=false;page2=true;">
-                    <a href="#1" id="back" class="p2" style="display: inline;">← Back</a>
-                    <input type="submit" value="GET STARTED" class="login-submit p2" style="display: none;">
+                    <input type="button" id="continue_button" value="Continue" ng-switch-when="page1" ng-click="toggle(2)">
+                    <a href="#pricing" id="back_pricing" class="back_button" ng-switch-when="page1">← Pricing</a>
+                    <a href="" id="back_button" class="back_button" ng-switch-when="page2" ng-click="toggle(1)">← Back</a>
+                    <input type="submit" id="submit_button" value="Sign Up" class="login-submit" ng-switch-when="page2">
                 </div>
             </form>
             <div id="bottom_link">
