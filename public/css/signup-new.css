@@ -91,10 +91,6 @@ input, textarea {
 	width: 365px;
 }
 
-input.reqblue {
-
-}
-
 .sign-up-header {
 	color: #6f7486;
 	font-size: 30px;
@@ -149,7 +145,7 @@ input.reqblue {
 
 #bottom_link {
 	margin: 12px 0;
-	color: #fff;
+	color: black;
 	font-weight: bold;
 }
 
@@ -162,3 +158,14 @@ input.reqblue {
 	/* background-repeat: repeat-x; */
 }
 
+.validation-error-bar {
+    height: 20px;
+    width: 200px;
+    margin-bottom:-20px;
+    padding-bottom:-20px;
+    position:relative;
+    top: -24px;
+    border-top-style: solid;
+    border-top-color:red;
+    border-top-width:3px;
+}

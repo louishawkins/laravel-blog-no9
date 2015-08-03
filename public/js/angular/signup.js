@@ -7,15 +7,64 @@ var emailHolder = null;
 app.controller('SignupController', ['$scope', '$location', function ($scope, $location) {
     var params = $location.search();
     $scope.crmSet = false;
+    $scope.signupInputs = {};
+
 
     /**
      * Pagination
      */
     $scope.page = 'page1';
 
-    $scope.toggle = function (pageNum) {
-        $scope.page = 'page' + pageNum;
+    $scope.toggle = function (pageIndex) {
+        var isValid = validateInput(pageIndex);
+
+        if (pageIndex === 2) {
+            var fields = ['name', 'username', 'email'];
+
+            fields.forEach(function (field) {
+                var variable = field + 'Error';
+                $scope[variable] = false;
+            });
+
+            if(!isValid.name) {
+                $scope.nameError = true;
+                return $('#name-error').text('Please enter your full name.');
+            }
+
+            if(!isValid.username) {
+                $scope.usernameError = true;
+                return $('#username-error').text('Please enter your email.');
+            }
+
+            if(!isValid.password) {
+                $scope.passwordError = true;
+                return $('#password-error').text('Please enter a password.');
+            }
+
+            $scope.page = 'page2';
+            setTimeout(function() {
+                $('#company').val($scope.signupInputs.company);
+                $('#phoneNumber').val($scope.signupInputs.phoneNumber);
+                $('#crmProvider').val($scope.signupInputs.crmProvider);
+            })
+        }
+        if (pageIndex === 1) {
+            $scope.page = 'page1';
+            setTimeout(function() {
+                $('#name').val($scope.signupInputs.name);
+                $('#username').val($scope.signupInputs.username);
+                $('#password').val($scope.signupInputs.password);
+            });
+        }
+
+        if (pageIndex === 3) {
+            // submitting the form to dashboard
+            $('#name_hidden').val($scope.signupInputs.name);
+            $('#username_hidden').val($scope.signupInputs.username);
+            $('#pass_hidden').val($scope.signupInputs.password);
+        }
     };
+
     //$scope.phoneSet = false;
     displayError();
 
@@ -39,7 +88,41 @@ app.controller('SignupController', ['$scope', '$location', function ($scope, $lo
     }
     trackFormEntry();
     setupHestitationTimers();
+
+    function validateInput(pageIndex) {
+        if (pageIndex === 2) {
+            var name = $('#name').val();
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            $scope.signupInputs.name = name;
+            $scope.signupInputs.username = username;
+            $scope.signupInputs.password = password;
+
+            return {
+                    name: name.length > 2,
+                    username: username.length > 4,
+                    password: password.length > 4
+                }
+        } else if (pageIndex === 1) {
+            $scope.signupInputs.company = $('#company').val();
+            $scope.signupInputs.phoneNumber = $('#phoneNumber').val();
+            $scope.signupInputs.crmProvider = $('#crmProvider').val();
+        } else if (pageIndex === 3) {
+            var company = $('#company').val();
+            var phoneNumber = $('#phoneNumber').val();
+            var crmProvider = $('#crmProvider').val();
+
+            return {
+                company: company.length > 0,
+                phoneNumber: phoneNumber.length > 4,
+                crmProvider: crmProvider.length > 0
+            }
+        }
+    }
 }]);
+
+
 
 /**
  * Tracks form entry to enable chat help
